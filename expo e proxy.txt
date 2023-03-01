@@ -1,0 +1,39 @@
+﻿set NODE_OPTIONS=--openssl-legacy-provider
+
+
+c:\users\pro6761\appdata\roaming\npm\expo start
+
+npm config set strict-ssl false 
+
+npm config set https-proxy http://proxycefsa.cefsa.corp.local:8080
+
+
+npm  install -D  expo-cli
+npx expo start
+
+
+criar sombra:
+https://ethercreative.github.io/react-native-shadow-generator/
+
+
+
+============================================
+
+**Se der esse erro porque não achou o expo: 
+Unable to find expo in this project - have you run yarn / npm install yet?
+1 -rodar o comando abaixo
+
+npm cache clean --force
+
+2- Instalar o expo novamente
+
+npm install expo-cli -g
+
+3-Rodar o npm install novamente
+
+npm install
+
+
+
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes

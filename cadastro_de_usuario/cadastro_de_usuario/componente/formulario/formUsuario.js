@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, AsyncStorage, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Button } from 'react-native-paper';
 
 export default function FormUsuario() {
 
@@ -9,11 +11,11 @@ export default function FormUsuario() {
     const [senha, setSenha] = useState("");
     const [confirmSenha, setConfirmSenha] = useState("");
 
-    function salvar() {
-        console.log("teste")
+    async function salvar() {
         AsyncStorage.setItem("usuario", JSON.stringify({
             codigo, nome, email, senha
         }))
+        console.log(await AsyncStorage.getItem("usuario"));
     }
 
     return (
@@ -33,9 +35,10 @@ export default function FormUsuario() {
             <Text>Confirmar senha</Text>
             <TextInput onChangeText={confirmSenha => setConfirmSenha(confirmSenha)}></TextInput>
 
-            <TouchableOpacity onPress={() => salvar()}><Text>Salvar</Text></TouchableOpacity>
-            <TouchableOpacity><Text>Carregar</Text></TouchableOpacity>
-            <TouchableOpacity><Text>Limpar</Text></TouchableOpacity>
+            <Button style={{backgroundColor: "yellow"}} onPress={() => salvar()}><Text>Salvar</Text></Button>
+            <Button><Text>Carregar</Text></Button>
+            <Button style={{backgroundColor: "red"}}><Text>Limpar</Text></Button>
         </>
     )
 }
+
